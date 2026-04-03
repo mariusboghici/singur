@@ -20,7 +20,7 @@ body {
 h1 {
     font-size: 2.8rem;
     margin-bottom: 0.5rem;
-    color: #222; /* gri închis, nu negru dur */
+    color: #222;
     font-weight: bold;
 }
 
@@ -28,7 +28,7 @@ h1 {
 p {
     font-size: 1.5rem;
     margin-bottom: 2.5rem;
-    color: #444; /* gri cald */
+    color: #444;
     max-width: 90%;
 }
 
@@ -38,7 +38,6 @@ button {
     padding: 0.9rem 2.4rem;
     margin: 0.6rem;
 
-    /* Culoare modernă */
     background: #1a73e8;
     color: white;
 
@@ -61,7 +60,7 @@ footer {
     color: #777;
 }
 
-/* ====== Responsive pentru telefoane ====== */
+/* ====== Responsive ====== */
 @media (max-width: 600px) {
     h1 {
         font-size: 2.3rem;
