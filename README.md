@@ -1,7 +1,7 @@
 ## Ce este singur.blog?
 
 Un loc unde oamenii singuri pot scrie, citi și vorbi. Gratuit.  
-Un spațiu construit pentru cei care nu au cui să spună ce simt, sau nu mai au curajul să o facă.
+Un spațiu construit pentru cei care nu au cui să spună ce simt, sau nu au curajul să o facă.
 
 singur.blog nu e despre „a salva o poveste”.
 
