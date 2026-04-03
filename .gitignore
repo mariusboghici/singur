@@ -1,0 +1,7 @@
+# Sistem
+.DS_Store
+Thumbs.db
+
+# Node (dacă vei adăuga vreodată un build tool)
+node_modules/
+dist/
