@@ -18,7 +18,6 @@
             resize: none;
             margin-bottom: 1.5rem;
         }
-
         select {
             width: 100%;
             padding: 0.8rem;
@@ -29,11 +28,9 @@
             margin-bottom: 1.2rem;
             font-size: 1rem;
         }
-
         #ritual {
             display: none;
             margin-top: 2rem;
-            animation: fadeIn 400ms ease-out;
         }
     </style>
 </head>
@@ -73,50 +70,43 @@
             <option>Altundeva</option>
         </select>
 
-        <div class="buttons" id="sendButtons">
-            <button class="primary" onclick="trimite()">Trimite</button>
-        </div>
+        <button class="primary" onclick="trimite()">Trimite</button>
+
+        <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 1rem;">
+            Notă: Povestea ta nu este trimisă pe internet și nu este stocată pe server. 
+            Rămâne doar în dispozitivul tău și o poți șterge oricând.
+        </p>
 
         <div id="ritual">
             <h2>Mulțumesc.</h2>
-            <p>Povestea ta a fost păstrată aici, în locul tău.  
-            Nu pleacă nicăieri. Nu o citește nimeni.  
-            Rămâne doar cu tine.</p>
-
-            <div class="buttons">
-                <a href="index.html">
-                    <button class="secondary">Înapoi acasă</button>
-                </a>
-            </div>
+            <p>Povestea ta a fost păstrată aici, în locul tău. Nu pleacă nicăieri. Nu o citește nimeni.</p>
+            <a href="index.html"><button class="secondary">Înapoi acasă</button></a>
         </div>
     </div>
 
-    <footer>© 2026 singur</footer>
+    <footer>
+        © 2026 singur
+        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 0.5rem;">
+            Povestea ta nu este trimisă pe internet. Este salvată doar în dispozitivul tău.
+        </p>
+    </footer>
 
     <script>
         function trimite() {
             const poveste = document.getElementById("text").value.trim();
-            const varsta = document.getElementById("varsta").value;
-            const gen = document.getElementById("gen").value;
-            const locatie = document.getElementById("locatie").value;
-
-            if (!poveste) {
-                alert("Scrie măcar câteva cuvinte.");
-                return;
-            }
+            if (!poveste) { alert("Scrie măcar câteva cuvinte."); return; }
 
             const data = {
                 poveste,
-                varsta,
-                gen,
-                locatie,
+                varsta: document.getElementById("varsta").value,
+                gen: document.getElementById("gen").value,
+                locatie: document.getElementById("locatie").value,
                 timestamp: new Date().toISOString()
             };
 
             localStorage.setItem("povestea_ta", JSON.stringify(data));
 
             document.getElementById("ritual").style.display = "block";
-            document.getElementById("sendButtons").style.display = "none";
         }
     </script>
 </body>
