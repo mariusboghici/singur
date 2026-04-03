@@ -12,7 +12,6 @@
             padding: 1.4rem;
             border-radius: 12px;
             margin-bottom: 1.8rem;
-            text-align: left;
             white-space: pre-wrap;
             line-height: 1.6;
         }
@@ -22,26 +21,29 @@
 <body>
     <div class="main">
         <h2>Povestea ta</h2>
-        <p>Aici este povestea pe care ai lăsat-o. Doar tu o poți vedea.</p>
+
+        <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 1.5rem;">
+            Tot ce vezi aici este salvat doar în dispozitivul tău. 
+            Nimeni altcineva nu poate accesa sau citi povestea ta.
+        </p>
 
         <div id="content"></div>
 
         <div class="buttons">
-            <a href="sterge-povestea.html">
-                <button class="secondary">Șterge povestea</button>
-            </a>
-
-            <a href="index.html">
-                <button class="secondary">Înapoi acasă</button>
-            </a>
+            <a href="sterge-povestea.html"><button class="secondary">Șterge povestea</button></a>
+            <a href="index.html"><button class="secondary">Înapoi acasă</button></a>
         </div>
     </div>
 
-    <footer>© 2026 singur</footer>
+    <footer>
+        © 2026 singur
+        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 0.5rem;">
+            Povestea ta nu este trimisă pe internet. Este salvată doar în dispozitivul tău.
+        </p>
+    </footer>
 
     <script>
         const data = JSON.parse(localStorage.getItem("povestea_ta"));
-
         const content = document.getElementById("content");
 
         if (!data) {
