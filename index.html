@@ -5,18 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>singur</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+    @keyframes pulse {
+        0% { transform: scale(1); opacity: 0.9; }
+        50% { transform: scale(1.35); opacity: 1; }
+        100% { transform: scale(1); opacity: 0.9; }
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        background-color: #a78bfa; /* violet calm */
+        border-radius: 50%;
+        display: inline-block;
+        margin-left: 6px;
+        vertical-align: middle;
+        opacity: 0.9;
+        animation: pulse 2.8s ease-in-out infinite;
+    }
+</style>
+
 </head>
+
 <body>
     <div class="main">
         <h1>Singur?</h1>
         <p>Aici vii singur. Pleci altfel.</p>
 
         <div class="buttons">
+
             <a href="camera1.html"><button class="primary">Da</button></a>
             <a href="nu.html"><button class="secondary">Nu</button></a>
-            <a href="povestea.html"><button class="secondary">Povestea ta</button></a>
 
-            <!-- Aceste două butoane vor fi ascunse dacă nu există poveste -->
+            <!-- Povestea ta (cu punct violet dacă există poveste) -->
+            <a href="povestea.html" id="poveste-link">
+                <button class="secondary">
+                    Povestea ta <span id="dot" class="dot" style="display:none;"></span>
+                </button>
+            </a>
+
+            <!-- Aceste două apar doar dacă există poveste -->
             <a id="vezi" href="povestea-ta.html" style="display:none;">
                 <button class="secondary">Vezi povestea ta</button>
             </a>
@@ -24,12 +53,13 @@
             <a id="sterge" href="sterge-povestea.html" style="display:none;">
                 <button class="secondary">Șterge povestea</button>
             </a>
+
         </div>
     </div>
 
     <footer>
         © 2026 singur — creat de 
-        <a href="tel:+407xxxxxxxx"
+        <a href="tel:+40774022381"
            style="color: inherit; text-decoration: none; cursor: pointer; opacity: 0.8;">
            MRB
         </a>
@@ -40,12 +70,15 @@
     </footer>
 
     <script>
-        // verificăm dacă există poveste salvată
         const poveste = localStorage.getItem("povestea_ta");
 
         if (poveste) {
+            // arată butoanele suplimentare
             document.getElementById("vezi").style.display = "block";
             document.getElementById("sterge").style.display = "block";
+
+            // arată punctul violet
+            document.getElementById("dot").style.display = "inline-block";
         }
     </script>
 </body>
