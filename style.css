@@ -3,11 +3,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background: #f5f5f5;
 
-    /* Fundal modern, subtil */
-    background: #f5f6fa;
-
-    /* Centrare perfectă */
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -21,7 +18,6 @@ h1 {
     font-size: 2.8rem;
     margin-bottom: 0.5rem;
     color: #222;
-    font-weight: bold;
 }
 
 /* ====== Subtitlu ====== */
@@ -29,27 +25,45 @@ p {
     font-size: 1.5rem;
     margin-bottom: 2.5rem;
     color: #444;
-    max-width: 90%;
 }
 
-/* ====== Butoane ====== */
-button {
-    font-size: 1.2rem;
-    padding: 0.9rem 2.4rem;
-    margin: 0.6rem;
+/* ====== Container butoane ====== */
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
 
+/* ====== Buton primar (DA) ====== */
+button.primary {
     background: #1a73e8;
     color: white;
-
     border: none;
-    border-radius: 10px;
-
+    padding: 1rem 2.5rem;
+    font-size: 1.3rem;
+    border-radius: 12px;
     cursor: pointer;
-    transition: 0.2s ease;
+    transition: 0.25s ease;
 }
 
-button:hover {
+button.primary:hover {
     background: #0f5fcc;
+}
+
+/* ====== Buton secundar (NU) ====== */
+button.secondary {
+    background: #ffffff;
+    color: #222;
+    border: 2px solid #222;
+    padding: 1rem 2.5rem;
+    font-size: 1.3rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+button.secondary:hover {
+    background: #222;
+    color: #fff;
 }
 
 /* ====== Footer ====== */
@@ -58,21 +72,4 @@ footer {
     bottom: 15px;
     font-size: 0.9rem;
     color: #777;
-}
-
-/* ====== Responsive ====== */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2.3rem;
-    }
-
-    p {
-        font-size: 1.3rem;
-    }
-
-    button {
-        width: 80%;
-        font-size: 1.1rem;
-        padding: 1rem;
-    }
 }
