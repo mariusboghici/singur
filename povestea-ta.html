@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Povestea ta – singur</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .box {
+            background: #0f0f11;
+            border: 1px solid #3a3a3d;
+            padding: 1.4rem;
+            border-radius: 12px;
+            margin-bottom: 1.8rem;
+            text-align: left;
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h2>Povestea ta</h2>
+        <p>Aici este povestea pe care ai lăsat-o. Doar tu o poți vedea.</p>
+
+        <div id="content"></div>
+
+        <div class="buttons">
+            <a href="sterge-povestea.html">
+                <button class="secondary">Șterge povestea</button>
+            </a>
+
+            <a href="index.html">
+                <button class="secondary">Înapoi acasă</button>
+            </a>
+        </div>
+    </div>
+
+    <footer>© 2026 singur</footer>
+
+    <script>
+        const data = JSON.parse(localStorage.getItem("povestea_ta"));
+
+        const content = document.getElementById("content");
+
+        if (!data) {
+            content.innerHTML = "<p>Nu ai lăsat încă nicio poveste.</p>";
+        } else {
+            content.innerHTML = `
+                <div class="box">${data.poveste}</div>
+                <p><strong>Vârstă:</strong> ${data.varsta || "—"}</p>
+                <p><strong>Gen:</strong> ${data.gen || "—"}</p>
+                <p><strong>Regiune:</strong> ${data.locatie || "—"}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

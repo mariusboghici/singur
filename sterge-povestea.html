@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Șterge povestea – singur</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <h2>Ești sigur?</h2>
+        <p>Povestea ta e doar a ta. Dacă o ștergi, dispare pentru totdeauna din acest loc.</p>
+
+        <div class="buttons" id="buttons">
+            <button class="primary" onclick="sterge()">Da, șterge</button>
+            <a href="povestea-ta.html">
+                <button class="secondary">Nu, mă întorc</button>
+            </a>
+        </div>
+
+        <div id="done" style="display:none; margin-top:2rem;">
+            <h2>A fost eliberată.</h2>
+            <p>Uneori, să lași ceva să plece e tot ce poți face.</p>
+
+            <div class="buttons">
+                <a href="index.html">
+                    <button class="secondary">Înapoi acasă</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>© 2026 singur</footer>
+
+    <script>
+        function sterge() {
+            localStorage.removeItem("povestea_ta");
+            document.getElementById("buttons").style.display = "none";
+            document.getElementById("done").style.display = "block";
+        }
+    </script>
+</body>
+</html>
