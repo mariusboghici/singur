@@ -1,50 +1,41 @@
-/* ====== Layout general ====== */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background: #ffffff;
-    height: 100vh;
 
+    /* Ce ai cerut: centrare perfectă */
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;   /* centrează vertical */
-    align-items: center;       /* centrează orizontal */
+    justify-content: center; 
+    align-items: center;
     text-align: center;
 }
 
-/* ====== Titlu ====== */
+/* Titlul "singur" */
 h1 {
-    font-size: 2.4rem;
+    font-size: 2.6rem; /* puțin mai mare */
     margin-bottom: 0.5rem;
-    font-weight: bold;
 }
 
-/* ====== Subtitlu / text ====== */
+/* Subtitlul */
 p {
-    font-size: 1.4rem;
-    margin-bottom: 2.5rem;
-    max-width: 90%;
+    font-size: 1.4rem; /* puțin mai mare */
+    margin-bottom: 2rem;
 }
 
-/* ====== Butoane ====== */
+/* Butoane */
 button {
-    font-size: 1.2rem;
-    padding: 0.9rem 2.2rem;
-    margin: 0.6rem;
+    font-size: 1.2rem; /* mai mare */
+    padding: 0.8rem 2rem;
+    margin: 0.5rem;
     border: 1px solid #000;
     background: #fff;
     cursor: pointer;
-    border-radius: 6px;
-    transition: 0.2s ease;
 }
 
-button:hover {
-    background: #000;
-    color: #fff;
-}
-
-/* ====== Footer ====== */
+/* Footer */
 footer {
     position: absolute;
     bottom: 15px;
@@ -52,19 +43,16 @@ footer {
     color: #555;
 }
 
-/* ====== Responsive pentru telefoane ====== */
+/* Mobile */
 @media (max-width: 600px) {
     h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
-
     p {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
     }
-
     button {
         width: 80%;
         font-size: 1.1rem;
-        padding: 0.9rem;
     }
 }
