@@ -27,6 +27,26 @@ Un drum pe care îl parcurgi singur, în ritmul tău.
 
 ## Faza 2 (în dezvoltare)
 
+---
+
+## Confidențialitate și siguranță
+
+singur.blog este construit pentru oameni, nu pentru date.
+
+- Nu colectăm povești.  
+- Nu salvăm nimic pe server.  
+- Nu cerem nume, email, telefon sau cont.  
+- Tot ce scrii rămâne doar în dispozitivul tău, în spațiul tău privat.  
+- Povestea ta nu poate fi văzută, citită sau accesată de nimeni altcineva.  
+- O poți șterge oricând, cu un singur gest.
+
+Aici nu ești urmărit.  
+Nu ești analizat.  
+Nu ești expus.
+
+Ești doar tu, într-un loc sigur.
+
+
 Un mod sigur, anonim și blând prin care oamenii se vor putea apropia, conecta și, poate, întâlni.  
 Fără expunere. Fără presiune. Fără riscuri.
 
