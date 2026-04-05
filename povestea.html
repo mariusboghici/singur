@@ -43,6 +43,27 @@
         Povestea ta nu este trimisă pe internet. Este salvată doar în dispozitivul tău.
     </p>
 </footer>
+<script>
+    const textarea = document.getElementById("text");
+    const saveBtn = document.getElementById("save");
+
+    // dacă există o poveste salvată, o încărcăm în textarea
+    const poveste = localStorage.getItem("povestea_ta");
+    if (poveste) {
+        textarea.value = poveste;
+    }
+
+    // salvăm povestea în localStorage
+    saveBtn.addEventListener("click", () => {
+        const text = textarea.value.trim();
+        if (text.length > 0) {
+            localStorage.setItem("povestea_ta", text);
+            alert("Povestea ta a fost salvată în dispozitivul tău.");
+        } else {
+            alert("Scrie ceva înainte să salvezi.");
+        }
+    });
+</script>
 
 </body>
 </html>
