@@ -33,30 +33,16 @@
         <a href="index.html"><button class="secondary" aria-label="Înapoi la început">Înapoi</button></a>
     </main>
 
-    <footer>
-        © 2026 singur — creat de 
-        <a href="tel:+40774022381" style="color: inherit; text-decoration: none; cursor: pointer; opacity: 0.8;">
-            MRB
-        </a>
+   <footer>
+    © 2026 singur — creat de 
+    <a href="tel:+40774022381" style="color: inherit; text-decoration: none; cursor: pointer; opacity: 0.8;">
+        MRB
+    </a>
 
-        <small id="counter" style="opacity:0.4; margin-left:8px;"></small>
-    </footer>
+    <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 0.5rem;">
+        Povestea ta nu este trimisă pe internet. Este salvată doar în dispozitivul tău.
+    </p>
+</footer>
 
-    <script>
-        // încărcăm povestea dacă există
-        const textarea = document.getElementById("text");
-        textarea.value = localStorage.getItem("povestea_ta") || "";
-
-        // salvare
-        document.getElementById("save").onclick = () => {
-            localStorage.setItem("povestea_ta", textarea.value.trim());
-            alert("Povestea a fost salvată.");
-        };
-
-        // contor vizitatori
-        fetch("https://api.countapi.xyz/hit/singur.blog/visits")
-            .then(r => r.json())
-            .then(d => document.getElementById("counter").textContent = d.value);
-    </script>
 </body>
 </html>
