@@ -3,117 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Povestea ta – singur</title>
+
+    <title>Scrie povestea ta — singur.blog</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Scrie povestea ta în liniște. Totul rămâne doar în dispozitivul tău.">
+    <meta name="keywords" content="scrie poveste, anonim, singur, jurnal, emotii">
+    <link rel="canonical" href="https://singur.blog/povestea.html">
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content="Scrie povestea ta — singur.blog">
+    <meta property="og:description" content="Un loc sigur unde poți scrie povestea ta. Gratuit și anonim.">
+    <meta property="og:image" content="https://singur.blog/og.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <link rel="stylesheet" href="style.css">
-    <style>
-        textarea {
-            width: 100%;
-            height: 180px;
-            background: #0f0f11;
-            color: #f2f2f2;
-            border: 1px solid #3a3a3d;
-            border-radius: 12px;
-            padding: 1rem;
-            font-size: 1rem;
-            resize: none;
-            margin-bottom: 1.5rem;
-        }
-        select {
-            width: 100%;
-            padding: 0.8rem;
-            background: #0f0f11;
-            color: #f2f2f2;
-            border: 1px solid #3a3a3d;
-            border-radius: 12px;
-            margin-bottom: 1.2rem;
-            font-size: 1rem;
-        }
-        #ritual {
-            display: none;
-            margin-top: 2rem;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="main">
-        <h2>Povestea ta</h2>
-        <p>Scrie aici ce porți cu tine. Nu trebuie să fie perfect. Nu trebuie să fie frumos. Doar sincer.</p>
+    <main class="main">
+        <h1>Scrie povestea ta</h1>
 
-        <textarea id="text" placeholder="Scrie aici..."></textarea>
+        <label for="text" style="opacity:0.7;">Povestea ta</label>
+        <textarea id="text" aria-label="Scrie povestea ta aici"></textarea>
 
-        <select id="varsta">
-            <option value="">Vârstă (opțional)</option>
-            <option>18–24</option>
-            <option>25–34</option>
-            <option>35–44</option>
-            <option>45–54</option>
-            <option>55+</option>
-        </select>
-
-        <select id="gen">
-            <option value="">Gen (opțional)</option>
-            <option>Femeie</option>
-            <option>Bărbat</option>
-            <option>Prefer să nu spun</option>
-        </select>
-
-        <select id="locatie">
-            <option value="">Regiune (opțional)</option>
-            <option>Moldova</option>
-            <option>Transilvania</option>
-            <option>Muntenia</option>
-            <option>Dobrogea</option>
-            <option>Banat</option>
-            <option>Crișana</option>
-            <option>Oltenia</option>
-            <option>Altundeva</option>
-        </select>
-
-        <button class="primary" onclick="trimite()">Trimite</button>
-
-        <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 1rem;">
-            Notă: Povestea ta nu este trimisă pe internet și nu este stocată pe server. 
-            Rămâne doar în dispozitivul tău și o poți șterge oricând.
-        </p>
-
-        <div id="ritual">
-            <h2>Mulțumesc.</h2>
-            <p>Povestea ta a fost păstrată aici, în locul tău. Nu pleacă nicăieri. Nu o citește nimeni.</p>
-            <a href="index.html"><button class="secondary">Înapoi acasă</button></a>
-        </div>
-    </div>
+        <button class="primary" id="save" aria-label="Salvează povestea">Salvează</button>
+        <a href="index.html"><button class="secondary" aria-label="Înapoi la început">Înapoi</button></a>
+    </main>
 
     <footer>
-    © 2026 singur — creat de 
-    <a href="tel:+40774022381"
-       style="color: inherit; text-decoration: none; cursor: pointer; opacity: 0.8;">
-       MRB
-    </a>
+        © 2026 singur — creat de 
+        <a href="tel:+40700000000" style="color: inherit; text-decoration: none; cursor: pointer; opacity: 0.8;">
+            MRB
+        </a>
 
-    <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 0.5rem;">
-        Povestea ta nu este trimisă pe internet. Este salvată doar în dispozitivul tău.
-    </p>
-</footer>
-
+        <small id="counter" style="opacity:0.4; margin-left:8px;"></small>
+    </footer>
 
     <script>
-        function trimite() {
-            const poveste = document.getElementById("text").value.trim();
-            if (!poveste) { alert("Scrie măcar câteva cuvinte."); return; }
+        // încărcăm povestea dacă există
+        const textarea = document.getElementById("text");
+        textarea.value = localStorage.getItem("povestea_ta") || "";
 
-            const data = {
-                poveste,
-                varsta: document.getElementById("varsta").value,
-                gen: document.getElementById("gen").value,
-                locatie: document.getElementById("locatie").value,
-                timestamp: new Date().toISOString()
-            };
+        // salvare
+        document.getElementById("save").onclick = () => {
+            localStorage.setItem("povestea_ta", textarea.value.trim());
+            alert("Povestea a fost salvată.");
+        };
 
-            localStorage.setItem("povestea_ta", JSON.stringify(data));
-
-            document.getElementById("ritual").style.display = "block";
-        }
+        // contor vizitatori
+        fetch("https://api.countapi.xyz/hit/singur.blog/visits")
+            .then(r => r.json())
+            .then(d => document.getElementById("counter").textContent = d.value);
     </script>
 </body>
 </html>
