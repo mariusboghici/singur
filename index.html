@@ -3,66 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>singur</title>
+
+    <title>singur.blog — un loc pentru oameni singuri</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Un loc sigur unde oamenii singuri pot scrie, citi și respira. Gratuit, anonim, fără date colectate.">
+    <meta name="keywords" content="singur, singuratate, poveste, anonim, scrie, vorbeste, ajutor, spatiu sigur">
+    <link rel="canonical" href="https://singur.blog">
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content="singur.blog">
+    <meta property="og:description" content="Un loc sigur unde oamenii singuri pot scrie, citi și respira. Gratuit și anonim.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://singur.blog">
+    <meta property="og:image" content="https://singur.blog/og.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <link rel="stylesheet" href="style.css">
 
     <style>
-    @keyframes pulse {
-        0% { transform: scale(1); opacity: 0.9; }
-        50% { transform: scale(1.35); opacity: 1; }
-        100% { transform: scale(1); opacity: 0.9; }
-    }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.35); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.9; }
+        }
 
-    .dot {
-        width: 10px;
-        height: 10px;
-        background-color: #a78bfa; /* violet calm */
-        border-radius: 50%;
-        display: inline-block;
-        margin-left: 6px;
-        vertical-align: middle;
-        opacity: 0.9;
-        animation: pulse 2.8s ease-in-out infinite;
-    }
-</style>
-
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #a78bfa;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 6px;
+            vertical-align: middle;
+            opacity: 0.9;
+            animation: pulse 2.8s ease-in-out infinite;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="main">
+    <main class="main">
         <h1>Singur?</h1>
         <p>Aici vii singur. Pleci altfel.</p>
 
-        <div class="buttons">
+        <nav class="buttons" aria-label="Navigare principală">
+            <a href="camera1.html"><button class="primary" aria-label="Intră în prima cameră">Da</button></a>
+            <a href="nu.html"><button class="secondary" aria-label="Nu sunt singur">Nu</button></a>
 
-            <a href="camera1.html"><button class="primary">Da</button></a>
-            <a href="nu.html"><button class="secondary">Nu</button></a>
-
-            <!-- Povestea ta (cu punct violet dacă există poveste) -->
             <a href="povestea.html" id="poveste-link">
-                <button class="secondary">
+                <button class="secondary" aria-label="Scrie povestea ta">
                     Povestea ta <span id="dot" class="dot" style="display:none;"></span>
                 </button>
             </a>
 
-            <!-- Aceste două apar doar dacă există poveste -->
             <a id="vezi" href="povestea-ta.html" style="display:none;">
-                <button class="secondary">Vezi povestea ta</button>
+                <button class="secondary" aria-label="Vezi povestea ta">Vezi povestea ta</button>
             </a>
 
             <a id="sterge" href="sterge-povestea.html" style="display:none;">
-                <button class="secondary">Șterge povestea</button>
+                <button class="secondary" aria-label="Șterge povestea ta">Șterge povestea</button>
             </a>
-
-        </div>
-    </div>
+        </nav>
+    </main>
 
     <footer>
         © 2026 singur — creat de 
-        <a href="tel:+40774022381"
-           style="color: inherit; text-decoration: none; cursor: pointer; opacity: 0.8;">
-           MRB
+        <a href="tel:+40700000000" style="color: inherit; text-decoration: none; cursor: pointer; opacity: 0.8;">
+            MRB
         </a>
+
+        <small id="counter" style="opacity:0.4; margin-left:8px;"></small>
 
         <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 0.5rem;">
             Povestea ta nu este trimisă pe internet. Este salvată doar în dispozitivul tău.
@@ -70,16 +83,19 @@
     </footer>
 
     <script>
+        // verificăm dacă există poveste salvată
         const poveste = localStorage.getItem("povestea_ta");
 
         if (poveste) {
-            // arată butoanele suplimentare
             document.getElementById("vezi").style.display = "block";
             document.getElementById("sterge").style.display = "block";
-
-            // arată punctul violet
             document.getElementById("dot").style.display = "inline-block";
         }
+
+        // contor vizitatori
+        fetch("https://api.countapi.xyz/hit/singur.blog/visits")
+            .then(r => r.json())
+            .then(d => document.getElementById("counter").textContent = d.value);
     </script>
 </body>
 </html>
