@@ -6,12 +6,11 @@
 
     <title>Final — singur.blog</title>
 
-    <meta name="description" content="Ai ajuns la final. Dar nu e finalul tău.">
-    <meta name="keywords" content="final, singur, introspecție">
+    <meta name="description" content="Final.">
     <link rel="canonical" href="https://singur.blog/final.html">
 
     <meta property="og:title" content="Final — singur.blog">
-    <meta property="og:description" content="Ai ajuns la final. Dar nu e finalul tău.">
+    <meta property="og:description" content="Final.">
     <meta property="og:image" content="https://singur.blog/og.png">
 
     <link rel="icon" type="image/png" href="favicon.png">
@@ -20,24 +19,22 @@
 
 <body>
     <main class="main">
-        <h1>Ai ajuns.</h1>
-        <p>Dar nu e finalul tău.</p>
+        <h1>Final</h1>
+        <p>Mulțumesc.</p>
 
-        <a href="index.html"><button class="primary" aria-label="Înapoi la început">Înapoi la început</button></a>
+        <a href="index.html"><button class="primary">Înapoi la început</button></a>
     </main>
 
     <footer>
         © 2026 singur — creat de 
-        <a href="tel:+40700000000" style="color: inherit; text-decoration: none; opacity: 0.8;">
-            MRB
-        </a>
-        <small id="counter" style="opacity:0.4; margin-left:8px;"></small>
+        <a href="tel:+40700000000">MRB</a>
+        <small id="counter"></small>
     </footer>
 
     <script>
         fetch("https://api.countapi.xyz/hit/singur.blog/visits")
             .then(r => r.json())
-            .then(d => document.getElementById("counter").textContent = d.value);
+            .then(d => counter.textContent = d.value);
     </script>
 </body>
 </html>
