@@ -6,12 +6,11 @@
 
     <title>Nu — singur.blog</title>
 
-    <meta name="description" content="Dacă nu ești singur, e bine. Dar poți reveni oricând.">
-    <meta name="keywords" content="nu, singur, introspecție">
+    <meta name="description" content="Dacă nu ești singur, e bine.">
     <link rel="canonical" href="https://singur.blog/nu.html">
 
     <meta property="og:title" content="Nu — singur.blog">
-    <meta property="og:description" content="Dacă nu ești singur, e bine. Dar poți reveni oricând.">
+    <meta property="og:description" content="Dacă nu ești singur, e bine.">
     <meta property="og:image" content="https://singur.blog/og.png">
 
     <link rel="icon" type="image/png" href="favicon.png">
@@ -20,24 +19,24 @@
 
 <body>
     <main class="main">
-        <h1>E bine.</h1>
-        <p>Atunci nu ai nevoie de camerele mele.</p>
+        <h1>Nu</h1>
+        <p>E bine.</p>
 
-        <a href="index.html"><button class="primary" aria-label="Înapoi">Înapoi</button></a>
+        <a href="index.html">
+            <button class="primary">Înapoi</button>
+        </a>
     </main>
 
     <footer>
         © 2026 singur — creat de 
-        <a href="tel:+40700000000" style="color: inherit; text-decoration: none; opacity: 0.8;">
-            MRB
-        </a>
-        <small id="counter" style="opacity:0.4; margin-left:8px;"></small>
+        <a href="tel:+40700000000">MRB</a>
+        <small id="counter"></small>
     </footer>
 
     <script>
         fetch("https://api.countapi.xyz/hit/singur.blog/visits")
             .then(r => r.json())
-            .then(d => document.getElementById("counter").textContent = d.value);
+            .then(d => counter.textContent = d.value);
     </script>
 </body>
 </html>
