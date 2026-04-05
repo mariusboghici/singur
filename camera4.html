@@ -3,23 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>singur – camera 4</title>
+
+    <title>Camera 4 — singur.blog</title>
+
+    <meta name="description" content="A patra cameră. Ești aproape.">
+    <meta name="keywords" content="camera 4, singur, introspecție">
+    <link rel="canonical" href="https://singur.blog/camera4.html">
+
+    <meta property="og:title" content="Camera 4 — singur.blog">
+    <meta property="og:description" content="A patra cameră. Ești aproape.">
+    <meta property="og:image" content="https://singur.blog/og.png">
+
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="main">
-        <h2>Ai venit singur.</h2>
-        <p>Ai venit singur. Ai trecut prin camerele tale. Ai stat cu tine câteva clipe în plus.</p>
+    <main class="main">
+        <h1>Camera 4</h1>
+        <p>Încă un pas.</p>
 
-        <p>Poate nu s-a schimbat totul. Dar ceva s-a mișcat. Măcar un milimetru.</p>
+        <nav aria-label="Navigare cameră">
+            <a href="final.html"><button class="primary" aria-label="Mergi la final">Continuă</button></a>
+            <a href="index.html"><button class="secondary" aria-label="Înapoi">Înapoi</button></a>
+        </nav>
+    </main>
 
-        <div class="buttons">
-            <a href="final.html">
-                <button class="primary">Da, sunt pregătit</button>
-            </a>
-        </div>
-    </div>
+    <footer>
+        © 2026 singur — creat de 
+        <a href="tel:+40700000000" style="color: inherit; text-decoration: none; opacity: 0.8;">
+            MRB
+        </a>
+        <small id="counter" style="opacity:0.4; margin-left:8px;"></small>
+    </footer>
 
-    <footer>© 2026 singur</footer>
+    <script>
+        fetch("https://api.countapi.xyz/hit/singur.blog/visits")
+            .then(r => r.json())
+            .then(d => document.getElementById("counter").textContent = d.value);
+    </script>
 </body>
 </html>
